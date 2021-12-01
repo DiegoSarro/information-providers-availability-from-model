@@ -5,10 +5,14 @@ import { MenuItem } from "@mui/material";
 import {Typography} from "@mui/material";
 import { Select } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
+import _ from 'lodash';
+
+
 
 
 const TimeSlotSelector = ({slot,day,onClick,onDelete,...props}) => {
 
+    //const [hoursLists812,setHoursList] = React.useState(_.range(8,12))
     const [starts,setStarts] = React.useState(slot.starts || props.defaultStart)
     const [ends,setEnds] = React.useState(slot.ends || props.defaultEnds)
 
@@ -29,8 +33,8 @@ const TimeSlotSelector = ({slot,day,onClick,onDelete,...props}) => {
     }
 
     return(
-        <Box className="flex content-center items-center ml-auto mt-0" style={{marginLeft:'auto'}}>
-            <FormControl sx={{ m: 1, minWidth: 120 }} >
+        <Box className="flex content-center items-center" style={{marginLeft:'auto',padding:'0px',marginTop:'0px'}}>
+            <FormControl sx={{ margin: '3px', minWidth: 100 }} size="small">
                 <Select
                 value={starts}
                 onChange={handleStartsChange}
@@ -38,26 +42,16 @@ const TimeSlotSelector = ({slot,day,onClick,onDelete,...props}) => {
                 style={{fontSize:'12px',padding:'0px',borderRadius:'20px'}}
                 inputProps={{ 'aria-label': 'Without label' }}
                 >
-                <MenuItem value="8:00 AM">8:00 AM</MenuItem>
-                <MenuItem value="9:00 AM">9:00 AM</MenuItem>
-                <MenuItem value="10:00 AM">10:00 AM</MenuItem>
-                <MenuItem value="11:00 AM">11:00 AM</MenuItem>
-                <MenuItem value="12:00 PM">12:00 AM</MenuItem>
-                <MenuItem value="1:00 PM">1:00 PM</MenuItem>
-                <MenuItem value="2:00 PM">2:00 PM</MenuItem>
-                <MenuItem value="3:00 PM">3:00 PM</MenuItem>
-                <MenuItem value="4:00 PM">4:00 PM</MenuItem>
-                <MenuItem value="5:00 PM">5:00 PM</MenuItem>
-                <MenuItem value="6:00 PM">6:00 PM</MenuItem>
-                <MenuItem value="7:00 PM">7:00 PM</MenuItem>
-                <MenuItem value="8:00 PM">8:00 PM</MenuItem>
+                {_.range(8,13).map(n => <MenuItem value={`${n}:00 AM`} style={{fontSize:'12px',paddingTop:'2px',paddingBottom:'2px'}}>{`${n}:00 AM`}</MenuItem>)}
+                {_.range(1,9).map(n => <MenuItem value={`${n}:00 PM`} style={{fontSize:'12px',paddingTop:'2px',paddingBottom:'2px'}}>{`${n}:00 PM`}</MenuItem>)}
+
                 </Select>
             </FormControl>
 
             <Typography variant="div" gutterBottom style={{margin:5}}>
                       to 
             </Typography>
-            <FormControl sx={{ m: 1, minWidth: 120 }}>
+            <FormControl sx={{ margin: '3px', minWidth: 100 }} size="small">
             <Select
             value={ends}
             onChange={handleEndsChange}
@@ -65,22 +59,11 @@ const TimeSlotSelector = ({slot,day,onClick,onDelete,...props}) => {
             displayEmpty
             inputProps={{ 'aria-label': 'Without label' }}
             >
-            <MenuItem value="8:00 AM">8:00 AM</MenuItem>
-            <MenuItem value="9:00 AM">9:00 AM</MenuItem>
-            <MenuItem value="10:00 AM">10:00 AM</MenuItem>
-            <MenuItem value="11:00 AM">11:00 AM</MenuItem>
-            <MenuItem value="12:00 PM">12:00 AM</MenuItem>
-            <MenuItem value="1:00 PM">1:00 PM</MenuItem>
-            <MenuItem value="2:00 PM">2:00 PM</MenuItem>
-            <MenuItem value="3:00 PM">3:00 PM</MenuItem>
-            <MenuItem value="4:00 PM">4:00 PM</MenuItem>
-            <MenuItem value="5:00 PM">5:00 PM</MenuItem>
-            <MenuItem value="6:00 PM">6:00 PM</MenuItem>
-            <MenuItem value="7:00 PM">7:00 PM</MenuItem>
-            <MenuItem value="8:00 PM">8:00 PM</MenuItem>
+            {_.range(8,13).map(n => <MenuItem value={`${n}:00 AM`} style={{fontSize:'12px',paddingTop:'5px',paddingBottom:'5px'}}>{`${n}:00 AM`}</MenuItem>)}
+                {_.range(1,9).map(n => <MenuItem value={`${n}:00 PM`} style={{fontSize:'12px',paddingTop:'5px',paddingBottom:'5px'}}>{`${n}:00 PM`}</MenuItem>)}
             </Select>
             </FormControl>
-            <DeleteIcon onClick={handleDelete} />
+            <DeleteIcon onClick={handleDelete} sx={{ margin: '3px'}} />
         </Box>
 
     )

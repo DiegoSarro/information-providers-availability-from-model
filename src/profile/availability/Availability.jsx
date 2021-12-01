@@ -181,7 +181,9 @@ export default function Availability() {
   const Item = styled(Box)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
+    marginTop : '0px',
     textAlign: 'left',
+
   }));
 
   const Title = styled(Box)(({ theme }) => ({
@@ -276,7 +278,7 @@ export default function Availability() {
                 <Stack direction="column" spacing={2} className="flex w-full">
                   <Item className="flex w-full">
                   <Stack direction="row" spacing={2} className="flex w-full">
-                    <Item className="flex" sx={{width: {xs: 150,sm: 150,md: 200},}}>
+                    <Item className="flex" sx={{width: {xs: 170,sm: 150,md: 200},}}>
                       <FormControlLabel
                             value={day.selected}
                             checked={day.selected}
@@ -324,8 +326,7 @@ export default function Availability() {
 
                 {day.customHours==="setHours" &&
                         day.hoursAvailability.map((slot,index) =>
-                        <Item direction="row" spacing={2} className="flex w-full ml-auto mt-0" style={{marginLeft:'auto',marginTop:'0px',padding:'0px'}}>
-                          {/* <TimeSlotPicker key={index} slot={slot} onClick={setHourToDay} onDelete={deleteSlot} className="flex w-full flex-column" /> */}
+                        <Item direction="row" sx={{display: 'flex',marginTop:'0px !important', p:'0px', marginLeft:{sm:'auto'},width: '100%' }}>
                           <TimeSlotSelector key={index} slot={slot} day={day} onClick={setHourToDay} onDelete={deleteSlot} />
                         </Item>
                       )}
