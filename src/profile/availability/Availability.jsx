@@ -275,9 +275,9 @@ export default function Availability() {
                   className="flex w-full text-left content-start"
                   key={day.name}>
                 
-                <Stack direction="column" spacing={2} className="flex w-full">
-                  <Item className="flex w-full">
-                  <Stack direction="row" spacing={2} className="flex w-full">
+                <Stack direction="column" spacing={2} className="flex w-full" sx={{ m: { xs: 0, md: 0 }, p: { xs: 0, md: 0}}}>
+                  <Item className="flex w-full" sx={{ m: { xs: 0, md: 0 }, p: { xs: 0, md: 0}}}>
+                  <Stack direction="row" spacing={2} className="flex w-full" sx={{ m: { xs: 0, md: 0 }, p: { xs: 0, md: 0}}}>
                     <Item className="flex" sx={{width: {xs: 170,sm: 150,md: 200},}}>
                       <FormControlLabel
                             value={day.selected}
