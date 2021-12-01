@@ -297,7 +297,8 @@ export default function Availability() {
                     </Item>
                     <Item className="flex w-2/3 md:w-2/3">
                       
-                      <Stack direction="column" spacing={2} className="flex w-full items-center p-px">
+                      { day.selected && 
+                        <Stack direction="column" spacing={2} className="flex w-full items-center p-px">
                         <Item className="flex w-full items-center">
                           <FormControl component="fieldset" className="flex w-full flex-column" style={{fontSize:'10px',padding:'0px'}}>
                             <RadioGroup row aria-label="hours" name="row-radio-buttons-group"
@@ -319,7 +320,7 @@ export default function Availability() {
                             </RadioGroup>
                           </FormControl>
                         </Item>
-                      </Stack>
+                      </Stack>}
                     </Item>
                   </Stack>
                   </Item>
