@@ -199,7 +199,7 @@ export default function Availability() {
     fontSize: 16,
     marginRight: 10,
     height: 20,
-    color: 'black'
+    color: 'rgb(0 0 0 / 75%)'
   }));
 
   const Subtitle = styled(Box)(({ theme }) => ({
@@ -327,7 +327,7 @@ export default function Availability() {
 
                 {day.customHours==="setHours" &&
                         day.hoursAvailability.map((slot,index) =>
-                        <Item direction="row" sx={{display: 'flex',marginTop:'0px !important', p:'0px', marginLeft:{sm:'auto'},width: '100%' }}>
+                        <Item direction="row" sx={{display: 'flex',justifyContent: 'flex-end', m:'0px 0px 0px 0px !important', p:'0px 10px 0px 0px !important'}}>
                           <TimeSlotSelector key={index} slot={slot} day={day} onClick={setHourToDay} onDelete={deleteSlot} />
                         </Item>
                       )}
@@ -336,8 +336,8 @@ export default function Availability() {
               </Paper>)}
 
               <Box sx={{ mt: { xs: 3, md: 3 }, p: { xs: 1, md: 1} }} direction="row">
-                <FormControl className="flex w-full">
-                  <Box className="flex w-full items-center">
+                <FormControl sx={{display: 'flex'}}>
+                  <Box  sx={{display: 'flex',justifyContent: 'center'}}>
                     <FormLabel component="legend" className="w-2/3 " >
                       <Title2>Do you want to set a minimun hour per stay?
                       </Title2>
@@ -353,7 +353,7 @@ export default function Availability() {
               </Box>
               
               
-                <Box sx={{ mt: { xs: 3, md: 3 }, p: { xs: 1, md: 1} }} direction="row">
+                <Box sx={{ mt: { xs: 0 }, p: { xs: 1, md: 1} }} direction="row">
                   <FormControl className="flex w-full">
                     <Box className="flex w-full items-center">
                       <FormLabel component="legend" className="w-2/3 " >

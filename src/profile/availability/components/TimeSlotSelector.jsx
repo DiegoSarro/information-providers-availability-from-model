@@ -33,8 +33,10 @@ const TimeSlotSelector = ({slot,day,onClick,onDelete,...props}) => {
     }
 
     return(
-        <Box className="flex content-center items-center" style={{marginLeft:'auto',padding:'0px',marginTop:'0px'}}>
-            <FormControl sx={{ margin: '3px', minWidth: 100 }} size="small">
+        <Box style={{paddingRight:{sx:'10px',sm:'20px',md:'30px'},justifyContent:'flex-end'
+        ,padding:'0px',marginTop:'0px'}}  className="flex items-center" 
+        >
+            <FormControl sx={{ margin: '3px', minWidth: 100}} size="small">
                 <Select
                 value={starts}
                 onChange={handleStartsChange}
@@ -48,7 +50,7 @@ const TimeSlotSelector = ({slot,day,onClick,onDelete,...props}) => {
                 </Select>
             </FormControl>
 
-            <Typography variant="div" gutterBottom style={{margin:5}}>
+            <Typography variant="div">
                       to 
             </Typography>
             <FormControl sx={{ margin: '3px', minWidth: 100 }} size="small">
